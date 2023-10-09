@@ -35,6 +35,11 @@
     transition: opacity 0.2s;
 }
 
+.accent.dark {
+    background-color: rgb(255, 42, 0);
+    color: white;
+}
+
 .accent:disabled {
     opacity: 0.4;
 }
@@ -56,4 +61,9 @@
 
 .base:hover {
     opacity: 0.9;
+}
+
+.base.dark {
+    background-color: rgb(55, 55, 55);
+    color: white;
 }

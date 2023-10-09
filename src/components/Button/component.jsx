@@ -1,5 +1,6 @@
 import classNames from "classnames";
 import styles from "./styles.module.css";
+import { useTheme } from "../../contexts/Theme";
 
 export const Button = ({
   children,
@@ -9,6 +10,8 @@ export const Button = ({
   size = "m",
   viewVariant = "base",
 }) => {
+  const { theme } = useTheme();
+
   return (
     <button
       onClick={onClick}
@@ -17,7 +20,8 @@ export const Button = ({
         styles.root,
         className,
         styles[size],
-        styles[viewVariant]
+        styles[viewVariant],
+        styles[theme]
       )}
     >
       {children}

@@ -1,5 +1,10 @@
+import { ThemeProvider } from "./contexts/Theme";
 import { RestaurantPage } from "./pages/Restaurants/component";
 
 export const App = () => {
-  return <RestaurantPage />;
+  return (
+    <ThemeProvider>
+      <RestaurantPage />
+    </ThemeProvider>
+  );
 };
