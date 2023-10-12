@@ -1,0 +1,20 @@
+.root {
+    display: flex;
+}
+
+.start {
+    background-color: grey;
+}
+
+.star:hover {
+    opacity: 0.7;
+}
+
+.hovered {
+    background-color: gold;
+}
+
+.star.active {
+    background-color: gold;
+    color: black;
+}
