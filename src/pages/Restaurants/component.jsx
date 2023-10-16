@@ -1,26 +1,21 @@
 import { useState } from "react";
-import { restaurants } from "../../constants/mock";
-import { RestaurantTabs } from "../../components/RestaurantTabs/component";
 import { Restaurant } from "../../components/Restaurant/component";
 import { Layout } from "../../components/Layout/component";
+import { RestaurantTabsContainer } from "../../components/RestaurantTabs/container";
+import { RestaurantContainer } from "../../components/Restaurant/container";
 
 export const RestaurantPage = () => {
-  const [activeRestaurantId, setActiveRestaurantId] = useState(
-    restaurants[0].id
-  );
-
-  const activeRestaurant = restaurants.find(
-    ({ id }) => id === activeRestaurantId
-  );
+  const [activeRestaurantId, setActiveRestaurantId] = useState();
 
   return (
     <Layout>
-      <RestaurantTabs
+      <RestaurantTabsContainer
         activeRestaurantId={activeRestaurantId}
-        restaurants={restaurants}
         onTabSelect={setActiveRestaurantId}
       />
-      <Restaurant restaurant={activeRestaurant} />
+      {activeRestaurantId && (
+        <RestaurantContainer restaurantId={activeRestaurantId} />
+      )}
     </Layout>
   );
 };
