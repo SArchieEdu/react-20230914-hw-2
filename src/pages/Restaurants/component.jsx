@@ -1,11 +1,18 @@
 import { useState } from "react";
-import { Restaurant } from "../../components/Restaurant/component";
 import { Layout } from "../../components/Layout/component";
 import { RestaurantTabsContainer } from "../../components/RestaurantTabs/container";
 import { RestaurantContainer } from "../../components/Restaurant/container";
+import { useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { getRestaurantsIfNotExist } from "../../redux/entities/restaurant/thunks/get-restaurants";
 
 export const RestaurantPage = () => {
   const [activeRestaurantId, setActiveRestaurantId] = useState();
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getRestaurantsIfNotExist());
+  }, []);
 
   return (
     <Layout>
